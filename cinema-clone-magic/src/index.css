@@ -1,0 +1,94 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 7%;
+    --foreground: 0 0% 95%;
+
+    --card: 0 0% 10%;
+    --card-foreground: 0 0% 95%;
+
+    --popover: 0 0% 10%;
+    --popover-foreground: 0 0% 95%;
+
+    --primary: 0 84% 49%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 0 0% 15%;
+    --secondary-foreground: 0 0% 95%;
+
+    --muted: 0 0% 15%;
+    --muted-foreground: 0 0% 70%;
+
+    --accent: 0 0% 15%;
+    --accent-foreground: 0 0% 95%;
+
+    --destructive: 0 84% 49%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 0 0% 20%;
+    --input: 0 0% 20%;
+    --ring: 0 84% 49%;
+
+    --radius: 0.5rem;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-cinema-darkGray text-cinema-lightGray;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+
+  body::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  body::-webkit-scrollbar-track {
+    background: #121212;
+  }
+
+  body::-webkit-scrollbar-thumb {
+    background: #E50914;
+    border-radius: 4px;
+  }
+}
+
+@layer components {
+  .movie-card {
+    @apply relative overflow-hidden rounded-md shadow-lg transition-transform duration-300 hover:scale-105;
+  }
+  
+  .movie-card-img {
+    @apply w-full h-auto object-cover aspect-[2/3];
+  }
+  
+  .button-primary {
+    @apply bg-cinema-red hover:bg-cinema-darkRed text-white font-semibold py-2 px-4 rounded transition-colors duration-300;
+  }
+
+  .container-custom {
+    @apply w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  .seat {
+    @apply w-8 h-8 m-1 flex items-center justify-center rounded cursor-pointer;
+  }
+  
+  .seat-available {
+    @apply bg-cinema-gray text-white border border-gray-700 hover:bg-cinema-red hover:border-cinema-red transition-colors;
+  }
+  
+  .seat-selected {
+    @apply bg-cinema-red text-white border border-cinema-red;
+  }
+  
+  .seat-reserved {
+    @apply bg-gray-600 text-gray-400 cursor-not-allowed;
+  }
+}
